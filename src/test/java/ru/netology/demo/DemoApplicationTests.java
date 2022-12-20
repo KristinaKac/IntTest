@@ -23,8 +23,10 @@ class DemoApplicationTests {
 
     @Test
     void contextLoads() {
-        ResponseEntity<String> forEntity = restTemplate.getForEntity("http://localhost:" + myapp.getMappedPort(8099), String.class);
-        System.out.println(forEntity.getBody());
+        ResponseEntity<String> forEntityFirst = restTemplate.getForEntity("http://localhost:" + myapp.getMappedPort(8099), String.class);
+        ResponseEntity<String> forEntitySecond = restTemplate.getForEntity("http://localhost:" + myapp2.getMappedPort(8098), String.class);
+        System.out.println(forEntityFirst.getBody());
+        System.out.println(forEntitySecond.getBody());
     }
 
 }
